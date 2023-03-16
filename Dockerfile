@@ -1,4 +1,4 @@
-FROM node:16.14.2
+FROM node:18.15.0
 WORKDIR /var/www/html
 COPY ./ ./
 RUN npm install -g pnpm
