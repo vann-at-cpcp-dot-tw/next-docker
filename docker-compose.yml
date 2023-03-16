@@ -5,8 +5,20 @@ services:
       context: ./
     container_name: next-docker
     volumes:
-      - ./:/usr/src/app
+      - ./:/var/www/html
     ports:
       - "3000:3000"
-    # command: sh -c "yarn install && yarn build && yarn start"
-    command: tail -f /dev/null
+    command: sh -c "${SERVICE_UP_CMD}"
+
+    # 創建 + 啟動容器
+    # docker compose up -d
+
+    # 如果 command 不包含 yarn 指令的話，執行以下
+    # docker exec app bash
+    # yarn dev
+
+    # 關閉容器
+    # docker compose down
+
+    #  yarn 重 build & 重啟 (如果 command 不包含 yarn 指令的話，一樣要再進 bash yarn)
+    # docker compose restart
