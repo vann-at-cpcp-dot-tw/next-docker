@@ -8,7 +8,7 @@ services:
       - ./:/var/www/html
     ports:
       - "3000:3000"
-    command: sh -c "${SERVICE_UP_CMD}"
+    command: sh -c "${SERVICE_UP_CMD:-pnpm install && pnpm build && pnpm start}"
 
     # 創建 + 啟動容器
     # docker compose up -d
